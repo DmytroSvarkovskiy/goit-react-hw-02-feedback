@@ -1,4 +1,9 @@
 import { Component } from 'react';
+import {
+  FeedbackList,
+  FeedbackText,
+  FeedbackBtnWRapper,
+} from './Feedback.styled';
 export class Feedback extends Component {
   state = {
     good: 0,
@@ -8,18 +13,18 @@ export class Feedback extends Component {
   render() {
     return (
       <div>
-        <h2>Please, leave feedback</h2>
-        <div>
+        <FeedbackText>Please, leave feedback</FeedbackText>
+        <FeedbackBtnWRapper>
           <button>Good</button>
           <button>Neutral</button>
           <button>Bad</button>
-        </div>
-        <h2>Statistics</h2>
-        <ul>
+        </FeedbackBtnWRapper>
+        <FeedbackText>Statistics</FeedbackText>
+        <FeedbackList>
           <li>Good</li>
           <li>Neutral</li>
           <li>Bad</li>
-        </ul>
+        </FeedbackList>
       </div>
     );
   }
