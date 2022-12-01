@@ -1,8 +1,5 @@
 import styled from 'styled-components';
 export const FeedbackList = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: 0;
   font-size: 30px;
   display: flex;
   gap: 20px;
@@ -13,7 +10,7 @@ export const FeedbackText = styled.h2`
   font-size: 50px;
   font-weight: 500;
 `;
-export const FeedbackBtnWRapper = styled.div`
+export const FeedbackBtnWrapper = styled.div`
   display: flex;
   gap: 25px;
   margin-bottom: 20px;
@@ -23,4 +20,14 @@ export const FeedbackBtn = styled.button`
   height: 30px;
   text-align: center;
   border-radius: 1.1em;
+  cursor: pointer;
+  &:hover {
+    rotate: 1.1;
+
+    background-color: ${p => {
+      if (p.children === 'Good') {
+        return '#7FFFD';
+      }
+    }};
+  }
 `;

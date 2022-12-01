@@ -2,7 +2,7 @@ import { Component } from 'react';
 import {
   FeedbackList,
   FeedbackText,
-  FeedbackBtnWRapper,
+  FeedbackBtnWrapper,
   FeedbackBtn,
 } from './Feedback.styled';
 export class Feedback extends Component {
@@ -15,11 +15,11 @@ export class Feedback extends Component {
     return (
       <div>
         <FeedbackText>Please, leave feedback</FeedbackText>
-        <FeedbackBtnWRapper>
+        <FeedbackBtnWrapper>
           <FeedbackBtn>Good</FeedbackBtn>
           <FeedbackBtn>Neutral</FeedbackBtn>
           <FeedbackBtn>Bad</FeedbackBtn>
-        </FeedbackBtnWRapper>
+        </FeedbackBtnWrapper>
         <FeedbackText>Statistics</FeedbackText>
         <FeedbackList>
           <li>Good</li>
