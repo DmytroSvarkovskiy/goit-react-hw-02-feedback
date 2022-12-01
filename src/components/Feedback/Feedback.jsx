@@ -11,19 +11,11 @@ export class Feedback extends Component {
     neutral: 0,
     bad: 0,
   };
-  onGoodClick = () => {
+
+  onBtnClick = e => {
+    const currentClick = e.target.textContent.toLowerCase();
     this.setState(prevState => {
-      return { good: prevState.good + 1 };
-    });
-  };
-  onNeutralClick = () => {
-    this.setState(prevState => {
-      return { neutral: prevState.neutral + 1 };
-    });
-  };
-  onBadClick = () => {
-    this.setState(prevState => {
-      return { bad: prevState.bad + 1 };
+      return { [currentClick]: prevState[currentClick] + 1 };
     });
   };
 
@@ -32,9 +24,9 @@ export class Feedback extends Component {
       <div>
         <FeedbackText>Please, leave feedback</FeedbackText>
         <FeedbackBtnWrapper>
-          <FeedbackBtn onClick={this.onGoodClick}>Good</FeedbackBtn>
-          <FeedbackBtn onClick={this.onNeutralClick}>Neutral</FeedbackBtn>
-          <FeedbackBtn onClick={this.onBadClick}>Bad</FeedbackBtn>
+          <FeedbackBtn onClick={this.onBtnClick}>Good</FeedbackBtn>
+          <FeedbackBtn onClick={this.onBtnClick}>Neutral</FeedbackBtn>
+          <FeedbackBtn onClick={this.onBtnClick}>Bad</FeedbackBtn>
         </FeedbackBtnWrapper>
         <FeedbackText>Statistics</FeedbackText>
         <FeedbackList>
