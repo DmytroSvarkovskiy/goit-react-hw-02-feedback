@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 export const FeedbackList = styled.ul`
-  font-size: 30px;
+  font-size: 25px;
   display: flex;
   gap: 20px;
   flex-direction: column;
 `;
 export const FeedbackText = styled.h2`
   margin: 0 0 20px;
-  font-size: 50px;
+  font-size: 45px;
   font-weight: 500;
 `;
 export const FeedbackBtnWrapper = styled.div`
@@ -21,13 +21,17 @@ export const FeedbackBtn = styled.button`
   text-align: center;
   border-radius: 1.1em;
   cursor: pointer;
-  &:hover {
-    rotate: 1.1;
-
+  border: 1px solid silver;
+  :hover {
     background-color: ${p => {
       if (p.children === 'Good') {
-        return '#7FFFD';
+        return '#20b2aa';
+      } else if (p.children === 'Neutral') {
+        return '#d9d9d9';
+      } else if (p.children === 'Bad') {
+        return '#b34019';
       }
     }};
   }
+  transition: background-color 0.4s;
 `;
