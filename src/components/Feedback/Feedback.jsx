@@ -16,7 +16,7 @@ export class Feedback extends Component {
       <div>
         <FeedbackText>Please, leave feedback</FeedbackText>
         <FeedbackBtnWRapper>
-          <FeedbackBtn></FeedbackBtn>
+          <FeedbackBtn>Good</FeedbackBtn>
           <FeedbackBtn>Neutral</FeedbackBtn>
           <FeedbackBtn>Bad</FeedbackBtn>
         </FeedbackBtnWRapper>
