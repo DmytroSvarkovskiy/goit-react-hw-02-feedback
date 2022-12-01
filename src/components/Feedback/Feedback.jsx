@@ -3,6 +3,7 @@ import {
   FeedbackList,
   FeedbackText,
   FeedbackBtnWRapper,
+  FeedbackBtn,
 } from './Feedback.styled';
 export class Feedback extends Component {
   state = {
@@ -15,9 +16,9 @@ export class Feedback extends Component {
       <div>
         <FeedbackText>Please, leave feedback</FeedbackText>
         <FeedbackBtnWRapper>
-          <button>Good</button>
-          <button>Neutral</button>
-          <button>Bad</button>
+          <FeedbackBtn></FeedbackBtn>
+          <FeedbackBtn>Neutral</FeedbackBtn>
+          <FeedbackBtn>Bad</FeedbackBtn>
         </FeedbackBtnWRapper>
         <FeedbackText>Statistics</FeedbackText>
         <FeedbackList>
