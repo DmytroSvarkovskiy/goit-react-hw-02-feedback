@@ -15,13 +15,12 @@ export class Feedback extends Component {
   onBtnClick = e => {
     const currentClick = e.target.textContent.toLowerCase();
     this.setState(prevState => {
-      return { [currentClick]: prevState[currentClick] + 1 };
+      return {
+        [currentClick]: prevState[currentClick] + 1,
+      };
     });
   };
-  countTotalFeedback = () => {
-    return this.state.bad;
-  };
-  total = this.countTotalFeedback();
+
   render() {
     return (
       <div>
@@ -36,7 +35,7 @@ export class Feedback extends Component {
           <li>Good: {this.state.good}</li>
           <li>Neutral: {this.state.neutral}</li>
           <li>Bad: {this.state.bad}</li>
-          <li>Total:{this.total}</li>
+          <li>Total: </li>
           <li>Positive feedback:</li>
         </FeedbackList>
       </div>
