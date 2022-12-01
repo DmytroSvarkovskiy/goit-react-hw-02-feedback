@@ -18,7 +18,10 @@ export class Feedback extends Component {
       return { [currentClick]: prevState[currentClick] + 1 };
     });
   };
-
+  countTotalFeedback = () => {
+    return this.state.bad;
+  };
+  total = this.countTotalFeedback();
   render() {
     return (
       <div>
@@ -33,6 +36,8 @@ export class Feedback extends Component {
           <li>Good: {this.state.good}</li>
           <li>Neutral: {this.state.neutral}</li>
           <li>Bad: {this.state.bad}</li>
+          <li>Total:{this.total}</li>
+          <li>Positive feedback:</li>
         </FeedbackList>
       </div>
     );
