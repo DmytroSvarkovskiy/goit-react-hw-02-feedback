@@ -3,10 +3,12 @@ import { Statistics } from './Statistics/Statistics';
 import { createGlobalStyle } from 'styled-components';
 import { Component } from 'react';
 import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
+import { Section } from './Section/Section';
 
 const GlobalStyle = createGlobalStyle`
   ul,h1,h2,h3,h4,h5,h6,li{list-style:none;margin:0;padding:0;};
   body{
+    height:100vh;
    display: flex;
    justify-content:center;
    align-items:center;
@@ -40,17 +42,19 @@ export class App extends Component {
     return (
       <div>
         <GlobalStyle />
-        <FeedbackOptions
-          options={this.state}
-          onLeaveFeedback={this.onBtnClick}
-        />
-        <Statistics
-          good={this.state.good}
-          bad={this.state.bad}
-          neutral={this.state.neutral}
-          total={this.countTotalFeedback()}
-          positivePercentage={this.countPositiveFeedbackPercentage()}
-        />
+        <Section title={'Please, leave feedback'}>
+          <FeedbackOptions
+            options={this.state}
+            onLeaveFeedback={this.onBtnClick}
+          />
+          <Statistics
+            good={this.state.good}
+            bad={this.state.bad}
+            neutral={this.state.neutral}
+            total={this.countTotalFeedback()}
+            positivePercentage={this.countPositiveFeedbackPercentage()}
+          />
+        </Section>
       </div>
     );
   }
