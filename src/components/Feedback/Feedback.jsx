@@ -1,10 +1,10 @@
 // import { Component } from 'react';
-import {
-  FeedbackList,
-  FeedbackText,
-  FeedbackBtnWrapper,
-  FeedbackBtn,
-} from './Feedback.styled';
+// import {
+//   FeedbackList,
+//   FeedbackText,
+//   FeedbackBtnWrapper,
+//   FeedbackBtn,
+// } from './Feedback.styled';
 export const Feedback = ({ state, changeState }) => {
   const { good, bad, neutral } = state;
 
@@ -24,20 +24,20 @@ export const Feedback = ({ state, changeState }) => {
   }
   return (
     <div>
-      <FeedbackText>Please, leave feedback</FeedbackText>
-      <FeedbackBtnWrapper>
-        <FeedbackBtn onClick={onBtnClick}>Good</FeedbackBtn>
-        <FeedbackBtn onClick={onBtnClick}>Neutral</FeedbackBtn>
-        <FeedbackBtn onClick={onBtnClick}>Bad</FeedbackBtn>
-      </FeedbackBtnWrapper>
-      <FeedbackText>Statistics</FeedbackText>
-      <FeedbackList>
+      <h2>Please, leave feedback</h2>
+      <div>
+        <button onClick={onBtnClick}>Good</button>
+        <button onClick={onBtnClick}>Neutral</button>
+        <button onClick={onBtnClick}>Bad</button>
+      </div>
+      <h2>Statistics</h2>
+      <ul>
         <li>Good: {good}</li>
         <li>Neutral: {neutral}</li>
         <li>Bad: {bad}</li>
         <li>Total: {countTotalFeedback()} </li>
         <li>Positive feedback: {countPositiveFeedbackPercentage()}%</li>
-      </FeedbackList>
+      </ul>
     </div>
   );
 };
