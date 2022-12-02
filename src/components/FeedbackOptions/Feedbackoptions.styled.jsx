@@ -1,9 +1,12 @@
 import styled from 'styled-components';
 export const FeedbackBtn = styled.button`
-  width: 65px;
-  height: 30px;
+  width: 80px;
+  height: 35px;
   text-align: center;
-  border-radius: 1.1em;
+  border-radius: 1.2em;
+  font-weight: 500;
+  font-size: 18px;
+
   cursor: pointer;
   border: 1px solid silver;
   :hover {
