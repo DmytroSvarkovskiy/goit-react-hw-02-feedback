@@ -1,6 +1,8 @@
-import { Feedback } from './Feedback/Feedback';
+// import { Feedback } from './Feedback/Feedback';
+import { Statistics } from './Statistics/Statistics';
 import { createGlobalStyle } from 'styled-components';
 import { Component } from 'react';
+import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 
 const GlobalStyle = createGlobalStyle`
   ul,h1,h2,h3,h4,h5,h6,li{list-style:none;margin:0;padding:0;};
@@ -17,16 +19,38 @@ export class App extends Component {
     neutral: 0,
     bad: 0,
   };
-  changeState = typeEvent => {
+
+  countTotalFeedback() {
+    return Object.values(this.state).reduce((acc, el) => {
+      return acc + el;
+    }, 0);
+  }
+  onBtnClick = e => {
+    const currentClick = e.target.textContent.toLowerCase();
     this.setState(prevState => ({
-      [typeEvent]: prevState[typeEvent] + 1,
+      [currentClick]: prevState[currentClick] + 1,
     }));
   };
+  countPositiveFeedbackPercentage() {
+    return this.countTotalFeedback() !== 0
+      ? Math.round((this.state.good / this.countTotalFeedback()) * 100)
+      : 0;
+  }
   render() {
     return (
       <div>
         <GlobalStyle />
-        <Feedback state={this.state} changeState={this.changeState} />
+        <FeedbackOptions
+          options={this.state}
+          onLeaveFeedback={this.onBtnClick}
+        />
+        <Statistics
+          good={this.state.good}
+          bad={this.state.bad}
+          neutral={this.state.neutral}
+          total={this.countTotalFeedback()}
+          positivePercentage={this.countPositiveFeedbackPercentage()}
+        />
       </div>
     );
   }
