@@ -1,53 +1,43 @@
-import { Component } from 'react';
+// import { Component } from 'react';
 import {
   FeedbackList,
   FeedbackText,
   FeedbackBtnWrapper,
   FeedbackBtn,
 } from './Feedback.styled';
-export class Feedback extends Component {
-  state = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
-  };
+export const Feedback = ({ state, changeState }) => {
+  const { good, bad, neutral } = state;
 
-  onBtnClick = e => {
+  function onBtnClick(e) {
     const currentClick = e.target.textContent.toLowerCase();
-    this.setState(prevState => {
-      return {
-        [currentClick]: prevState[currentClick] + 1,
-      };
-    });
-  };
-  countTotalFeedback() {
-    return Object.values(this.state).reduce((acc, el) => {
+    changeState(currentClick);
+  }
+  function countTotalFeedback() {
+    return Object.values(state).reduce((acc, el) => {
       return acc + el;
     }, 0);
   }
-  countPositiveFeedbackPercentage() {
-    return this.countTotalFeedback() !== 0
-      ? Math.round((this.state.good / this.countTotalFeedback()) * 100)
+  function countPositiveFeedbackPercentage() {
+    return countTotalFeedback() !== 0
+      ? Math.round((good / countTotalFeedback()) * 100)
       : 0;
   }
-  render() {
-    return (
-      <div>
-        <FeedbackText>Please, leave feedback</FeedbackText>
-        <FeedbackBtnWrapper>
-          <FeedbackBtn onClick={this.onBtnClick}>Good</FeedbackBtn>
-          <FeedbackBtn onClick={this.onBtnClick}>Neutral</FeedbackBtn>
-          <FeedbackBtn onClick={this.onBtnClick}>Bad</FeedbackBtn>
-        </FeedbackBtnWrapper>
-        <FeedbackText>Statistics</FeedbackText>
-        <FeedbackList>
-          <li>Good: {this.state.good}</li>
-          <li>Neutral: {this.state.neutral}</li>
-          <li>Bad: {this.state.bad}</li>
-          <li>Total: {this.countTotalFeedback()} </li>
-          <li>Positive feedback: {this.countPositiveFeedbackPercentage()}%</li>
-        </FeedbackList>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <FeedbackText>Please, leave feedback</FeedbackText>
+      <FeedbackBtnWrapper>
+        <FeedbackBtn onClick={onBtnClick}>Good</FeedbackBtn>
+        <FeedbackBtn onClick={onBtnClick}>Neutral</FeedbackBtn>
+        <FeedbackBtn onClick={onBtnClick}>Bad</FeedbackBtn>
+      </FeedbackBtnWrapper>
+      <FeedbackText>Statistics</FeedbackText>
+      <FeedbackList>
+        <li>Good: {good}</li>
+        <li>Neutral: {neutral}</li>
+        <li>Bad: {bad}</li>
+        <li>Total: {countTotalFeedback()} </li>
+        <li>Positive feedback: {countPositiveFeedbackPercentage()}%</li>
+      </FeedbackList>
+    </div>
+  );
+};
