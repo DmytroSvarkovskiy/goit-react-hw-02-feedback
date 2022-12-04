@@ -28,6 +28,7 @@ export class App extends Component {
       return acc + el;
     }, 0);
   };
+
   onBtnClick = e => {
     const currentClick = e.target.textContent.toLowerCase();
     this.setState(prevState => ({
@@ -47,11 +48,15 @@ export class App extends Component {
       onBtnClick,
       state,
     } = this;
+    const nameFeedback = Object.keys(state);
     return (
       <div>
         <GlobalStyle />
         <Section title={'Please, leave feedback'}>
-          <FeedbackOptions options={state} onLeaveFeedback={onBtnClick} />
+          <FeedbackOptions
+            nameFeedback={nameFeedback}
+            onLeaveFeedback={onBtnClick}
+          />
           <FeedbackText>Statistics:</FeedbackText>
           {countTotalFeedback() === 0 ? (
             <Notification message="There is no feedback" />

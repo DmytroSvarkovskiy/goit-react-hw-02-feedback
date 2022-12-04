@@ -4,5 +4,5 @@ export const Notification = ({ message }) => {
   return <FeedbackText>{message}</FeedbackText>;
 };
 Notification.propTypes = {
-  message: PropTypes.string,
+  message: PropTypes.string.isRequired,
 };
