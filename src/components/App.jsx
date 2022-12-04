@@ -54,7 +54,7 @@ export class App extends Component {
         <GlobalStyle />
         <Section title={'Please, leave feedback'}>
           <FeedbackOptions
-            nameFeedback={nameFeedback}
+            options={nameFeedback}
             onLeaveFeedback={onBtnClick}
           />
           <FeedbackText>Statistics:</FeedbackText>
